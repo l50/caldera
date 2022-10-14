@@ -1,0 +1,16 @@
+name: CALDERA Security Regression Pipeline
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+  # Run once a week (see https://crontab.guru)
+  schedule:
+    - cron: "0 0 * * 0"
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  tests:
+    uses: fbsamples/caldera-security-tests/.github/workflows/srp.yaml@main
